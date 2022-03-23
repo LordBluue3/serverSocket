@@ -25,6 +25,11 @@
             <artifactId>sql-provider</artifactId>
             <version>9561f20fd2</version>
         </dependency>
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.34.0</version>
+        </dependency>
     </dependencies>
 
     <repositories>
