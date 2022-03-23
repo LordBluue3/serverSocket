@@ -1,5 +1,7 @@
 package lord.serverSocket;
 
+import lord.serverSocket.database.SqlProvedor;
+
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
@@ -11,6 +13,8 @@ public class ServerSockett  {
     public static void main(String[] args) throws IOException {
 
            ServerSocket server = new ServerSocket(12345);
+           SqlProvedor executor = new SqlProvedor();
+           executor.criandoBd();
 
            while(true){
 
@@ -22,5 +26,6 @@ public class ServerSockett  {
                cliente.close();
 
            }
+
     }
 }
