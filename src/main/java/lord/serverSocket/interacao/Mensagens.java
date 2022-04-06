@@ -1,8 +1,6 @@
 package lord.serverSocket.interacao;
 
 import com.henryfabio.sqlprovider.executor.SQLExecutor;
-import lord.serverSocket.ServerSockett;
-import lord.serverSocket.database.SqlProvedor;
 import lord.serverSocket.database.Usuario;
 import lord.serverSocket.seguranca.Consulta;
 import lord.serverSocket.seguranca.Validar;
@@ -20,10 +18,10 @@ public class Mensagens {
     private final Socket socket;
     private List<String> listOfMessages = null;
 
-
-    public Mensagens(Socket socket,List<String> listOfMessages) {
+    public Mensagens(Socket socket, List<String> listOfMessages) {
         this.socket = socket;
         this.listOfMessages = listOfMessages;
+
     }
     public void lerMensagens(){
 
@@ -47,10 +45,11 @@ public class Mensagens {
         }
     }
 
-    public void imprimirMensagem(SQLExecutor executor, ServerSocket ss) {
+    public void imprimirMensagem(SQLExecutor executor, ServerSocket ss, int contador) {
         for (String msg : listOfMessages) {
             try {
                 JSONObject parsed = (JSONObject) new JSONParser().parse(msg);
+                System.out.println("=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=");
                 System.out.println("Mensagem Recebida: ");
                 String login = (String) parsed.get("login");
                 String senha = (String) parsed.get("senha");
