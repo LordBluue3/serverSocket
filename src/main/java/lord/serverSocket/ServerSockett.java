@@ -19,12 +19,15 @@ import java.util.List;
 
 public class ServerSockett  {
 
+    public static int contador = 1;
+
     public static void main(String[] args) throws IOException {
 
            ServerSocket ss = new ServerSocket(12345);
            SQLExecutor executor = new SqlProvedor().criandoBd();
            List<String> listOfMessages = null;
            Socket socket;
+
 
            while(true) {
                System.out.println("ServerSocket está conectando...");
@@ -39,10 +42,10 @@ public class ServerSockett  {
                mensagem.lerMensagens();
 
                // imprimir o texto de cada mensagem
-               System.out.println("Todas as mensagens:");
-               mensagem.imprimirMensagem(executor,ss);
-
+               mensagem.imprimirMensagem(executor,ss,contador);
                socket.close();
+
                }
+
            }
     }
